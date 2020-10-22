@@ -1,8 +1,11 @@
 import React from "react";
-import {Switch, Route} from "react-router";
-import {privateRouter,publicRouter} from "./router";
+import { Switch } from "react-router";
+import { privateRouter, publicRouter } from "./router";
+import routeAccessor from "./router/routAccessor";
 
-export default () => <Switch>
-    {publicRouter.map(({children,...rest}) => <Route key={rest.path}  {...rest}/> )}
-    {privateRouter().map(({children,...rest}) => <Route key={rest.path} {...rest}/> )}
-</Switch>
+export default () => (
+  <Switch>
+    {publicRouter.map((route) => routeAccessor(null, route))}
+    {privateRouter().map((route) => routeAccessor(null, route))}
+  </Switch>
+);

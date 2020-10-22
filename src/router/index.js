@@ -1,5 +1,5 @@
-import {RoutePath} from "./constants";
-import {RouteLabel} from "./constants";
+import { RoutePath } from "./constants";
+import { RouteLabel } from "./constants";
 import React from "react";
 
 export const privateRouter = (userRole) =>

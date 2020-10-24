@@ -6,9 +6,16 @@ export const RoutePath = {
   ACTIVATION: "/activation",
   ARTICLES: "/articles",
   USER: "/user",
+  WHITE_NOISE: "/whiteNoise",
 };
 
 export const RouteLabel = {
   ARTICLES: "Articles",
   USER: "User",
+  SIGN_IN: "SignIn",
+  SIGN_UP: "SignUp",
+  FORGOT: "ForgotPassword",
+  RESET: "ResetPassword",
+  ACTIVATION: "Activation",
+  WHITE_NOISE: "WhiteNoise"
 };

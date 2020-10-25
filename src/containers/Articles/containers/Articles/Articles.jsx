@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import "./index.scss";
-
 import {Article} from "../../components/Article";
+import useStyles from "./style"
 
 export default () => {
+    let classes = useStyles()
     const [articles] = useState([
         {
             title: "Article 1",
@@ -38,10 +38,18 @@ export default () => {
                 "If I want to trigger this useEffect when only isStarted state variable is true, then we can pass the isStarted state instead of passing empty array.",
             image: "https://res.cloudinary.com/practicaldev/image/fetch/s--GonmpiTj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/proxy/1%2Aydn7s31ud9PRdcbU6jbWBA.png",
         },
+        {
+            title: "Article 4",
+            description:
+                "Now, what if I want to call this side effect only when for some state is changed? Let assume, If I have another state called isStarted and initial value of it is false.\n" +
+                "\n" +
+                "If I want to trigger this useEffect when only isStarted state variable is true, then we can pass the isStarted state instead of passing empty array.",
+            image: "https://res.cloudinary.com/practicaldev/image/fetch/s--GonmpiTj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://miro.medium.com/proxy/1%2Aydn7s31ud9PRdcbU6jbWBA.png",
+        },
     ]);
 
     return (
-        <div className="articles">
+        <div className={classes.articles}>
             {articles.map((article, idx) => (
                 <Article article={article} key={`${article.title}-${idx}`}/>
             ))}

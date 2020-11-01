@@ -7,6 +7,7 @@ export const RoutePath = {
   ARTICLES: "/articles",
   USER: "/user",
   WHITE_NOISE: "/whiteNoise",
+  ADD_ARTICLE: "/addArticle"
 };
 
 export const RouteLabel = {
@@ -17,5 +18,6 @@ export const RouteLabel = {
   FORGOT: "ForgotPassword",
   RESET: "ResetPassword",
   ACTIVATION: "Activation",
-  WHITE_NOISE: "WhiteNoise"
+  WHITE_NOISE: "WhiteNoise",
+  ADD_ARTICLE: "AddArticle"
 };

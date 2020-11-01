@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Header} from "../../../Header/containers";
 import {SideBar} from "../../../SideBar/containers";
 import {Grid} from "@material-ui/core";
+import {useDispatch} from "react-redux";
+import * as actions from "../../../Articles/store/actions";
 
 export default ({children}) => {
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(actions.A_fetchArticlesRequest())
+    },[dispatch])
     return (
         <Grid container spacing={2}>
             <Grid item xs={12}>

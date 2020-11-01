@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {useState}from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import {useDispatch} from "react-redux";
+import {push} from "connected-react-router"
 import {Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import {RoutePath} from "../../../../router/constants"
+import {actions} from "../../store";
 
 const useStyles = makeStyles({
     root: {
@@ -9,17 +13,16 @@ const useStyles = makeStyles({
     },
 });
 
-export default ({ article: { image, title, description } }) => {
-    let classes = useStyles()
+export default ({ article: { image, title, description, id } }) => {
+    const classes = useStyles()
+    const dispatch = useDispatch()
     return (
         <Card className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
                     height="140"
                     image={image}
-                    title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -31,14 +34,14 @@ export default ({ article: { image, title, description } }) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary">
-                    Share
+                <Button onClick={()=>dispatch(push(`${RoutePath.ARTICLES}/${id}`))} size="small" color="primary">
+                    Edit
                 </Button>
-                <Button size="small" color="primary">
-                    Learn More
+                <Button onClick={()=>dispatch(actions.A_removeArticleRequest(id))} size="small" color="primary">
+                    Delete
                 </Button>
-                <Button size="small" color="primary" >
-                    Learn More and MORE
+                <Button onClick={()=>dispatch(actions.A_duplicateArticleRequest(id))} size="small" color="primary" >
+                    Duplicate
                 </Button>
             </CardActions>
         </Card>

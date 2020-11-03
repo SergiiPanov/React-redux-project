@@ -72,11 +72,10 @@ export default (state = initialState, action) =>{
                 error: null,
             }
         case constants.DUPLICATE_ARTICLE_SUCCESS:
-           // console.log(action.payload)
             return {
                 ...state,
                 loading: false,
-                articles : [...state.articles, action.payload],
+                articles : [action.payload, ...state.articles],
                 error: null,
             }
         default: return {...state};

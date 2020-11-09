@@ -13,7 +13,7 @@ const store = createStore(
   rootReducers(history),
   compose(
     applyMiddleware(routerMiddleware(history), sagaMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : (f) => f,
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
   ),
 );
 

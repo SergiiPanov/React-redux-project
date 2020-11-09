@@ -1,10 +1,8 @@
 import { createSelector } from "reselect";
 
-const selectArticlesState = (state) => state.articlesReducer;
+const selectArticlesState = state => state.articlesReducer;
 
+export const getAllArticles = () => createSelector(selectArticlesState, state => state.articles);
 
-export const getAllArticles = () =>
-    createSelector(selectArticlesState, (state) => state.articles);
-
-export const getArticle = (id) =>
-    createSelector(selectArticlesState, (state) => state.articles.find(article => String(article.id) === String(id)));
+export const getArticle = id =>
+  createSelector(selectArticlesState, state => state.articles.find(article => String(article.id) === String(id)));
